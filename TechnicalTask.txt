@@ -1,10 +1,10 @@
-Ссылка на API: https://openweathermap.org/current
+РЎСЃС‹Р»РєР° РЅР° API: https://openweathermap.org/current
 
-Ссылка на документацию: https://openweathermap.org/current
+РЎСЃС‹Р»РєР° РЅР° РґРѕРєСѓРјРµРЅС‚Р°С†РёСЋ: https://openweathermap.org/current
 
-Фичи проекта:
-1)Использование API openweather.com
-2)Использование аргументов командной строки
+Р¤РёС‡Рё РїСЂРѕРµРєС‚Р°:
+1)РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ API openweather.com
+2)РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ Р°СЂРіСѓРјРµРЅС‚РѕРІ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРё
 3)Gui????????
 4)profit
 
