@@ -9,7 +9,7 @@ public class HelloWorld {
         String api_key = "3dd9eb7d424e58b41dc86c4d60dc4273";
 
         /* пример готового URL
-        http://openweathermap.org/data/2.5/weather?q=London,uk&appid=3dd9eb7d424e58b41dc86c4d60dc4273
+        http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=3dd9eb7d424e58b41dc86c4d60dc4273
          */
 
         try {
