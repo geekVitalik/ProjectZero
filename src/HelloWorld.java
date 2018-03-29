@@ -23,6 +23,7 @@ public class HelloWorld {
         catch (IOException e) {
             System.out.println("IOException");
         }
+        //Дьяк могёт
         /* Пример респонса
         {"coord":{"lon":-0.13,"lat":51.51},
         "weather":[{"id":300,"main":"Drizzle","description":"light intensity drizzle","icon":"09d"}],
