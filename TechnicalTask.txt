@@ -1,14 +1,10 @@
 Ссылка на API: https://openweathermap.org/current
-
+Ссылка на библиотеку Gson: https://github.com/google/gson/blob/master/UserGuide.md
 Ссылка на документацию: https://openweathermap.org/current
 
 Для того чтобы работать с API нужно получить api-key и в каждом запросе вставлять его как параметр
 
-Задание на первое время научиться посылать requests и собственно получать ответы.
-
-
-
-
+Новое задание - парсить Json и узнать что такое сериализация/десериализация.
 
 Фичи проекта:
 1)Использование API openweather.com
