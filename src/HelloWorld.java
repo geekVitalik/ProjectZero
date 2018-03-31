@@ -17,13 +17,12 @@ public class HelloWorld {
             //myURLConnection.connect();
             HttpURLConnection myURLConnection = (HttpURLConnection) myURL.openConnection();
 
-            myURLConnection.setRequestMethod("GET");
+            //myURLConnection.setRequestMethod("GET");
 
             BufferedReader oReader = new BufferedReader(new InputStreamReader(myURLConnection.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
             while ((inputLine = oReader.readLine())!=null){
-                System.out.println(inputLine);
                 response.append(inputLine);
             }
             oReader.close();
