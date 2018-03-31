@@ -4,8 +4,7 @@ import java.io.*;
 
 public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("HelloWorld");
-        String api_url = "http://api.openweathermap.org/data/2.5/weather";
+        String api_url = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=3dd9eb7d424e58b41dc86c4d60dc4273";
         String api_key = "3dd9eb7d424e58b41dc86c4d60dc4273";
 
         /* пример готового URL
@@ -14,8 +13,21 @@ public class HelloWorld {
 
         try {
             URL myURL = new URL(api_url);
-            URLConnection myURLConnection = myURL.openConnection();
-            myURLConnection.connect();
+            //URLConnection myURLConnection = myURL.openConnection();
+            //myURLConnection.connect();
+            HttpURLConnection myURLConnection = (HttpURLConnection) myURL.openConnection();
+
+            myURLConnection.setRequestMethod("GET");
+
+            BufferedReader oReader = new BufferedReader(new InputStreamReader(myURLConnection.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+            while ((inputLine = oReader.readLine())!=null){
+                System.out.println(inputLine);
+                response.append(inputLine);
+            }
+            oReader.close();
+            System.out.println(response.toString());
         }
         catch (MalformedURLException e) {
             System.out.println("MalformedURLException");
