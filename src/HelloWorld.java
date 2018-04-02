@@ -1,15 +1,14 @@
 import java.net.*;
 import java.io.*;
+import java.util.Map;
+
+import com.google.gson.Gson;
 
 
 public class HelloWorld {
     public static void main(String[] args) {
-        String api_url = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=3dd9eb7d424e58b41dc86c4d60dc4273";
+        String api_url = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=3dd9eb7d424e58b41dc86c4d60dc4273";
         String api_key = "3dd9eb7d424e58b41dc86c4d60dc4273";
-
-        /* пример готового URL
-        http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=3dd9eb7d424e58b41dc86c4d60dc4273
-         */
 
         try {
             URL myURL = new URL(api_url);
@@ -27,6 +26,11 @@ public class HelloWorld {
             }
             oReader.close();
             System.out.println(response.toString());
+            Gson jsonParser = new Gson();
+            //jsonParser.fromJson(response,)
+
+
+
         }
         catch (MalformedURLException e) {
             System.out.println("MalformedURLException");
@@ -34,8 +38,35 @@ public class HelloWorld {
         catch (IOException e) {
             System.out.println("IOException");
         }
-        //Дьяк могёт
-        //Nope
+        class JsonResponse {
+            Map<String, Double> coord;
+            class Weather{
+                private String main;
+                private int id;
+                private String description;
+                private String icon;
+            }
+
+            private String base;
+            class temp{
+                private double temp;
+                private double pressure;
+                private double humidity;
+                private double tempMin;
+                private double tempMax;
+
+            }
+
+            private String visibility;
+            private String name;
+            private int cod;
+            private int id;
+
+            JsonResponse() {
+                // no-args constructor
+            }
+        }
+
         /* Пример респонса
         {"coord":{"lon":-0.13,"lat":51.51},
         "weather":[{"id":300,"main":"Drizzle","description":"light intensity drizzle","icon":"09d"}],
