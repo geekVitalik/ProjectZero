@@ -46,10 +46,5 @@ public class HelloWorld {
         "sys":{"type":1,"id":5091,"message":0.0103,"country":"GB","sunrise":1485762037,"sunset":1485794875},
         "id":2643743,"name":"London","cod":200}
          */
-
-
-
-
-
     }
 }
