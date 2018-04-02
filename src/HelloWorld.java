@@ -4,6 +4,15 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 class JsonResponse {
+
+
+    //----------------+
+    //                |
+    //                |
+    // ТУТ БЫЛ СТРЕЛЛ |
+    //                |
+    //                |
+    //----------------+
     class Coord{
         private String lon;
         private String lat;
