@@ -25,9 +25,9 @@ public class HelloWorld {
             Gson jsonParser = new Gson();
             JsonResponse jsonResponse = jsonParser.fromJson(response.toString(), JsonResponse.class);
             System.out.println(jsonParser.toJson(jsonResponse));
-            System.out.println(jsonResponse.getTemp());
-            System.out.println(jsonResponse.getWindSpeed());
-
+            System.out.println("Температура: "+jsonResponse.getTemp()+" градусов");
+            System.out.println("Скорость ветра: "+jsonResponse.getWindSpeed() +" м/с");
+            System.out.println("Погода: "+jsonResponse.getWeather());
 
         } catch (MalformedURLException e) {
             System.out.println("MalformedURLException");
