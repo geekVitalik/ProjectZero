@@ -19,6 +19,12 @@ class JsonResponse {
     }
 
     List<Weather> weather;
+
+    public String getWeather() {
+
+        return weather.get(0).description;
+    }
+
     private String base;
 
     class Temp {     //Main
@@ -60,6 +66,7 @@ class JsonResponse {
     }
 
     private int dt;
+
     Sys sys;
 
     class Sys {
