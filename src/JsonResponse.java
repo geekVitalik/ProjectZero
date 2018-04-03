@@ -37,14 +37,10 @@ class JsonResponse {
         return main.temp;
     }
 
-    public String getVisability() {
-        return visibility;
-    }
-
     private String visibility;
     Wind wind;
 
-    public double getWind() {
+    public double getWindSpeed() {
         return wind.speed;
     }
 

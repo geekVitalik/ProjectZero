@@ -3,13 +3,10 @@ import java.io.*;
 
 
 import com.google.gson.Gson;
-import com.google.gson.annotations.SerializedName;
-
-
 
 public class HelloWorld {
     public static void main(String[] args) {
-        String api_url = "http://api.openweathermap.org/data/2.5/weather?q=Minsk,by&appid=3dd9eb7d424e58b41dc86c4d60dc4273";
+        String api_url = "http://api.openweathermap.org/data/2.5/weather?q=Minsk,by&appid=3dd9eb7d424e58b41dc86c4d60dc4273&units=metric";
         String api_key = "3dd9eb7d424e58b41dc86c4d60dc4273";
 
         try {
@@ -29,8 +26,7 @@ public class HelloWorld {
             JsonResponse jsonResponse = jsonParser.fromJson(response.toString(), JsonResponse.class);
             System.out.println(jsonParser.toJson(jsonResponse));
             System.out.println(jsonResponse.getTemp());
-            System.out.println(jsonResponse.getVisability());
-            System.out.println(jsonResponse.getWind());
+            System.out.println(jsonResponse.getWindSpeed());
 
 
         } catch (MalformedURLException e) {
