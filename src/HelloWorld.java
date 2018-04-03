@@ -9,6 +9,11 @@ import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
 class JsonResponse {
+    //
+    //
+    //Просто хочу проверить, что с работы всё работает
+    //
+    //
     class Coord {
         double lon;
         double lat;
