@@ -30,6 +30,9 @@ class JsonResponse {
         @SerializedName("temp_max")
         double tempMax;
     }
+    public String getDescription() {
+        return weather.get(0).description;
+    }
 
     Temp main;
 

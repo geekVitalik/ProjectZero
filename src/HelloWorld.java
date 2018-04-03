@@ -26,7 +26,11 @@ public class HelloWorld {
             JsonResponse jsonResponse = jsonParser.fromJson(response.toString(), JsonResponse.class);
             System.out.println(jsonParser.toJson(jsonResponse));
             System.out.println(jsonResponse.getTemp());
+            System.out.println(jsonResponse.getDescription());
             System.out.println(jsonResponse.getWindSpeed());
+
+
+
 
 
         } catch (MalformedURLException e) {
