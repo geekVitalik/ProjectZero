@@ -1,64 +1,72 @@
 import java.net.*;
 import java.io.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
+
 class JsonResponse {
-
-
-    //----------------+
-    //                |
-    //                |
-    // ТУТ БЫЛ СТРЕЛЛ |
-    //                |
-    //                |
-    //----------------+
-    class Coord{
-        private String lon;
-        private String lat;
+    class Coord {
+        double lon;
+        double lat;
     }
-    class Weather{
-        private int id;
-        private String main;
-        private String description;
-        private String icon;
+
+    Coord coord;
+
+    class Weather {
+        int id;
+        String main;
+        String description;
+        String icon;
     }
+
+    List<Weather> weather;
     private String base;
-    static class main{     //Main
-        private  double temp;
-        private double pressure;
-        private double humidity;
-        private double tempMin;
-        private double tempMax;
-        //private double sea_level;
-        //private double grnd_level;
-        public double getTemp() {
-            return temp;
-        }
+
+    class Temp {     //Main
+        double temp;
+        double pressure;
+        double humidity;
+        @SerializedName("temp_min")
+        double tempMin;
+        @SerializedName("temp_max")
+        double tempMax;
     }
-    public String getVisability(){
+
+    Temp main = new Temp();
+
+    public double getTemp() {
+        return main.temp;
+    }
+
+    public String getVisability() {
         return visibility;
     }
+
     private String visibility;
-    class Wind{
+    Wind wind;
+
+    class Wind {
         private double speed;
         private double deg;
     }
-    class Clouds{
-        private int clouds;
-    }
-//    class Rain{
-//        private int rain;
-//    }
-//    class Snow{
-//        private int rain;
-//    }
-    private int dt;
 
-    class Sys{
+    Clouds clouds;
+
+    class Clouds {
+        private int all;
+    }
+
+    private int dt;
+    Sys sys;
+
+    class Sys {
         private int type;
         private int id;
-        private int message;
+        private double message;
         private String country;
         private int sunrise;
         private int sunset;
@@ -68,10 +76,12 @@ class JsonResponse {
     private int id;
     private String name;
     private int cod;
+
     JsonResponse() {
         // no-args constructor
     }
 }
+
 /* Пример респонса
         {"coord":{"lon":-0.13,"lat":51.51},
         "weather":[{"id":300,"main":"Drizzle","description":"light intensity drizzle","icon":"09d"}],
@@ -100,7 +110,7 @@ public class HelloWorld {
             BufferedReader oReader = new BufferedReader(new InputStreamReader(myURLConnection.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
-            while ((inputLine = oReader.readLine())!=null){
+            while ((inputLine = oReader.readLine()) != null) {
                 response.append(inputLine);
             }
             oReader.close();
@@ -109,19 +119,23 @@ public class HelloWorld {
             //String json = jsonParser.toJson(response);
             //System.out.println(json.length());
             //System.out.println(json);
-            JsonResponse jsonResponse = jsonParser.fromJson(response.toString(),JsonResponse.class);
-            System.out.println(jsonResponse.getVisability());
+            JsonResponse jsonResponse = jsonParser.fromJson(response.toString(), JsonResponse.class);
+            System.out.println(jsonParser.toJson(jsonResponse));
+            System.out.println(jsonResponse.getTemp());
 
 
-        }
-        catch (MalformedURLException e) {
+        } catch (MalformedURLException e) {
             System.out.println("MalformedURLException");
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("IOException");
         }
-
-
+        //----------------+
+        //                |
+        //                |
+        // ТУТ БЫЛ СТРЕЛЛ |
+        //                |
+        //                |
+        //----------------+
 
     }
 }
