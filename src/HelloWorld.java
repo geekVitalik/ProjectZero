@@ -37,7 +37,7 @@ class JsonResponse {
         double tempMax;
     }
 
-    Temp main = new Temp();
+    Temp main;
 
     public double getTemp() {
         return main.temp;
