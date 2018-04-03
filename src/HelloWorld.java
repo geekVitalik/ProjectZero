@@ -5,9 +5,16 @@ import java.io.*;
 import com.google.gson.Gson;
 
 public class HelloWorld {
-    public static void main(String[] args) {
-        String api_url = "http://api.openweathermap.org/data/2.5/weather?q=Minsk,by&appid=3dd9eb7d424e58b41dc86c4d60dc4273&units=metric";
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String choise = "";
+        System.out.println("Введите город (Minsk,by): ");
+        choise=reader.readLine();
+
+        String api_url = "http://api.openweathermap.org/data/2.5/weather?q="+choise+"&appid=3dd9eb7d424e58b41dc86c4d60dc4273&units=metric";
         String api_key = "3dd9eb7d424e58b41dc86c4d60dc4273";
+
 
         try {
             URL myURL = new URL(api_url);
