@@ -9,11 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
 class JsonResponse {
-    //
-    //
-    //Просто хочу проверить, что с работы всё работает
-    //
-    //
+
     class Coord {
         double lon;
         double lat;
@@ -53,11 +49,15 @@ class JsonResponse {
 
     private String visibility;
     Wind wind;
+    public double getWind(){
+        return wind.speed;
+    }
 
     class Wind {
         private double speed;
         private double deg;
     }
+
 
     Clouds clouds;
 
@@ -75,9 +75,7 @@ class JsonResponse {
         private String country;
         private int sunrise;
         private int sunset;
-
     }
-
     private int id;
     private String name;
     private int cod;
@@ -101,16 +99,14 @@ class JsonResponse {
          */
 public class HelloWorld {
     public static void main(String[] args) {
-        String api_url = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=3dd9eb7d424e58b41dc86c4d60dc4273";
+        String api_url = "http://api.openweathermap.org/data/2.5/weather?q=Minsk,by&appid=3dd9eb7d424e58b41dc86c4d60dc4273";
         String api_key = "3dd9eb7d424e58b41dc86c4d60dc4273";
 
         try {
             URL myURL = new URL(api_url);
-            //URLConnection myURLConnection = myURL.openConnection();
-            //myURLConnection.connect();
+
             HttpURLConnection myURLConnection = (HttpURLConnection) myURL.openConnection();
 
-            //myURLConnection.setRequestMethod("GET");
 
             BufferedReader oReader = new BufferedReader(new InputStreamReader(myURLConnection.getInputStream()));
             String inputLine;
@@ -121,12 +117,11 @@ public class HelloWorld {
             oReader.close();
             System.out.println(response.toString());
             Gson jsonParser = new Gson();
-            //String json = jsonParser.toJson(response);
-            //System.out.println(json.length());
-            //System.out.println(json);
             JsonResponse jsonResponse = jsonParser.fromJson(response.toString(), JsonResponse.class);
             System.out.println(jsonParser.toJson(jsonResponse));
             System.out.println(jsonResponse.getTemp());
+            System.out.println(jsonResponse.getVisability());
+            System.out.println(jsonResponse.getWind());
 
 
         } catch (MalformedURLException e) {
@@ -134,13 +129,5 @@ public class HelloWorld {
         } catch (IOException e) {
             System.out.println("IOException");
         }
-        //----------------+
-        //                |
-        //                |
-        // ТУТ БЫЛ СТРЕЛЛ |
-        //                |
-        //                |
-        //----------------+
-
     }
 }
